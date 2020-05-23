@@ -1,0 +1,43 @@
+mat-toolbar a {
+    padding: 0px 5px;
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  mat-toolbar a:visited, a:link {
+    color: #334953;
+  }
+  mat-toolbar a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+  }
+  mat-toolbar a.active {
+    color: #039be5;
+  }
+
+  .fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  .userLoged{
+    color: white;
+    font-style: oblique;
+    margin-right: 10px;
+    font-size: small;
+  }
+
+  .label {
+    display: inline-block;
+    line-height: 30px;
+    margin: 0;
+    width: 85%;
+  }
+
+  .icon{
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+  

@@ -1,0 +1,23 @@
+<div class="main-div">
+  <mat-card>
+          <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Username" formControlName="username" maxlength="15">
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password" maxlength="4">
+          </mat-form-field>
+        </p>
+        <div class="center-align">
+          <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

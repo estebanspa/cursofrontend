@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of as observableOf } from 'rxjs';
 import { ReplaySubject } from 'rxjs';
-import { User } from '../../core/Models/User';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class AuthService {
 
   }
 
-  login(name, pass): Boolean {
+  login(name, pass): boolean {
     let user = new User();
     user.username = name;
     user.password = pass;

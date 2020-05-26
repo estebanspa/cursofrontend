@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, of as observableOf } from 'rxjs';
 import { ReplaySubject } from 'rxjs';
 import { User } from '../models/user';
+import { AuthApiService } from '../../auth/services/auth-api.service'
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +11,25 @@ import { User } from '../models/user';
 export class AuthService {
   public currentUser$: ReplaySubject<User> = new ReplaySubject(1);
 
-  constructor() { 
-    
-
+  constructor(private authApiService: AuthApiService,
+    private router: Router) {
   }
 
-  login(name, pass): boolean {
+  login(name, pass) {
     let user = new User();
     user.username = name;
     user.password = pass;
-    this.currentUser$.next(user);
-    return true;
-    }
-
-    logout(): Boolean {
-      this.currentUser$.next(null);
-      return true;
+    this.authApiService.login(name, pass).subscribe(data => {
+      if (data) {
+        this.currentUser$.next(user);
+        console.warn('login exitoso');
+        this.router.navigate(['index']);
       }
+    });
+  }
+
+  logout(): Boolean {
+    this.currentUser$.next(null);
+    return true;
+  }
 }

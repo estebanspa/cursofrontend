@@ -12,12 +12,11 @@ export class AppComponent {
   title = 'ejercicio';
   public currentUser: User;
 
-  constructor(private authService: AuthService){
+  constructor(public authService: AuthService){
   }
 
   public ngOnInit(): void {
     this.authService.currentUser$.subscribe((user: User) => {
-      console.log('user$.subscribe', user);
       this.currentUser = user;
     });
   }

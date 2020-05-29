@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 
 export class AuthService {
   public currentUser$: ReplaySubject<User> = new ReplaySubject(1);
+  public isLoggedIn: boolean = false
 
   constructor(private authApiService: AuthApiService,
     private router: Router) {
@@ -22,7 +23,7 @@ export class AuthService {
     this.authApiService.login(name, pass).subscribe(data => {
       if (data) {
         this.currentUser$.next(user);
-        console.warn('login exitoso');
+        this.isLoggedIn = true;
         this.router.navigate(['index']);
       }
     });
@@ -30,6 +31,7 @@ export class AuthService {
 
   logout(): Boolean {
     this.currentUser$.next(null);
+    this.isLoggedIn = false;
     return true;
   }
 }

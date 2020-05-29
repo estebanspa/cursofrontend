@@ -18,7 +18,6 @@ export class LoginComponent {
   constructor(private authService: AuthService) { }
 
   onSubmit() {
-    console.warn(this.loginForm.value);
     this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value ) 
   }
   

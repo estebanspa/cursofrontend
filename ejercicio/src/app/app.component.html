@@ -1,13 +1,13 @@
 <mat-toolbar color="primary" class="expanded-toolbar">
   <span class="fill-remaining-space"></span>
-  <ng-container *ngIf="currentUser">
+  <ng-container *ngIf="authService.isLoggedIn">
     <div class ="userLoged" ><u> Hola, {{ currentUser.username  }} </u></div>
   </ng-container>
-  <a type="button" routerLink="/login" *ngIf="!currentUser" >
+  <a type="button" routerLink="/login" *ngIf="!authService.isLoggedIn" >
     <mat-icon class="icon">power_settings_new</mat-icon>
       <span class="label">Login</span>
   </a>
-  <a type="button" routerLink="/login" *ngIf="currentUser" (click)="logout()" >
+  <a type="button" routerLink="/login" *ngIf="authService.isLoggedIn" (click)="logout()" >
     <mat-icon class="icon">exit_to_app</mat-icon>
     <span class="label">Logout</span>
 </a>

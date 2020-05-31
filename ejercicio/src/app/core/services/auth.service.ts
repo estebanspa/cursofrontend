@@ -24,7 +24,7 @@ export class AuthService {
       if (data) {
         this.currentUser$.next(user);
         this.isLoggedIn = true;
-        this.router.navigate(['index']);
+        this.router.navigate(['people']);
       }
     });
   }

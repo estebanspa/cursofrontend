@@ -1,10 +1,14 @@
 <mat-toolbar>
-    <span>Listado de Personas</span>
-    <span class="fill-remaining-space"></span>
-    <mat-form-field>
-        <mat-label>Columnas</mat-label>
-        <mat-select [(ngModel)]="selectedValues" (selectionChange)="updateColumnList()" multiple>
-          <mat-option *ngFor="let columna of columnasList" [value]="columna">{{columna}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+
+  <span>Listado de Personas</span>
+
+  <span class="fill-remaining-space"></span>
+
+  <mat-form-field>
+    <mat-label class="additional-selection">Elegir Columnas</mat-label>
+    <mat-select [(ngModel)]="selectedValues" (selectionChange)="updateColumnList()" multiple>
+      <mat-option  *ngFor="let columna of columnasList" [value]="columna">{{columna}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
 </mat-toolbar>

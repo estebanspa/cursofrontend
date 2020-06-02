@@ -2,14 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PeopleListComponent } from './people-list/people-list.component';
 import { PeopleDetailComponent } from './people-detail/people-detail.component';
-
+import { PeopleGuard } from './people.guard';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: PeopleListComponent
   },
-  { path: ':id', component: PeopleDetailComponent }
+  {
+    path: ':id',
+    component: PeopleDetailComponent,
+    canDeactivate: [PeopleGuard]
+  },
 ];
 
 @NgModule({

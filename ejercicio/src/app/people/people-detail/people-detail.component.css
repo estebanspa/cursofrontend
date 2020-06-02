@@ -1,0 +1,10 @@
+.main-div{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .center-align{
+    text-align: center;
+  }

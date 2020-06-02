@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatTableModule,
     MatSelectModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
   ],
   exports: [
     MatCardModule,
@@ -35,7 +37,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatTableModule,
     MatSelectModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
   ]
 })
 

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
 import { AuthGuard } from './auth/auth.guard';
+import { PeopleDetailComponent } from './people/people-detail/people-detail.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./people/people.module').then(m => m.PeopleModule),
     canActivate: [AuthGuard]
   },
+  { path: 'people/:id', component: PeopleDetailComponent },
   {
     path: '',
     redirectTo: '',

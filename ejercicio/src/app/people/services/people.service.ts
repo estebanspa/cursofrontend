@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { People } from '../models/people';
 
 @Injectable({
@@ -22,6 +22,17 @@ export class PeopleService {
     return new Observable<People[]>(obs =>{
       obs.next(this.peopleList)
     })
+  }
+
+  public getPeople(id: number): Observable<People> {
+    return of(this.peopleList.find(people => people.Id === id));
+  }
+
+  public guardarPeople(peopleUpdated: People) {
+    let index = this.peopleList.findIndex(people => people.Id === peopleUpdated.Id)
+    this.peopleList[index].Nombre = peopleUpdated.Nombre;
+    this.peopleList[index].Edad = peopleUpdated.Edad;
+    this.peopleList[index].Ciudad = peopleUpdated.Ciudad;
   }
 
 }

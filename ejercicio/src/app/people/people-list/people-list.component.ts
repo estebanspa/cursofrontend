@@ -3,6 +3,7 @@ import { PeopleService } from '../services/people.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
+
 @Component({
   selector: 'app-people',
   templateUrl: './people-list.component.html',
@@ -21,7 +22,8 @@ export class PeopleListComponent implements OnInit {
   }
 
   getListColumns(listColumns: string[]){
-    this.displayedColumns = listColumns
+    this.displayedColumns = Object.assign([], listColumns)
+    this.displayedColumns.push("Action")
   }
 
   applyFilter(event: Event) {

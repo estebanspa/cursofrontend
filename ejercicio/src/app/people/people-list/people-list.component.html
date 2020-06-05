@@ -4,7 +4,7 @@
     
     <mat-form-field>
         <mat-label>Filtro</mat-label>
-        <input matInput (keyup)="applyFilter($event)">
+        <input [(ngModel)]="this.filterValue" matInput (keyup)="applyFilter()">
     </mat-form-field>
 
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">

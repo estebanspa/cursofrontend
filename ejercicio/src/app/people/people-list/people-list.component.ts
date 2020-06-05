@@ -12,7 +12,7 @@ import { MatSort } from '@angular/material/sort';
 export class PeopleListComponent implements OnInit {
   public displayedColumns: string[]
   public dataSource = new MatTableDataSource();
-  
+  public filterValue: string;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   
   constructor(private peopleService: PeopleService ) { 
@@ -26,9 +26,9 @@ export class PeopleListComponent implements OnInit {
     this.displayedColumns.push("Action")
   }
 
-  applyFilter(event: Event) {
+  applyFilter(): void {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 
   ngOnInit(): void {

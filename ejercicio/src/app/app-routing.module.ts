@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { AuthGuard } from './auth/auth.guard';
-import { PeopleGuard } from './people/people.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +16,8 @@ const routes: Routes = [
   {
     path: 'people',
     loadChildren: () => import('./people/people.module').then(m => m.PeopleModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard]
   },
   {
     path: '',
